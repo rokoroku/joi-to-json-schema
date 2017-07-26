@@ -174,7 +174,14 @@ let TYPES = {
     });
 
     return schema;
+  },  
+  
+  lazy: (schema, joi) => {
+    joi = joi._flags.lazy();
+
+    return TYPES[joi._type](schema, joi);
   }
+
 };
 
 /**
